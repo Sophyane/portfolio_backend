@@ -10,7 +10,7 @@ services:
       - POSTGRES_PASSWORD=$POSTGRESDB_ROOT_PASSWORD
       - POSTGRES_DB=$POSTGRESDB_DATABASE
     ports:
-      - $POSTGRESDB_LOCAL_PORT:$POSTGRESDB_DOCKER_PORT
+      - $POSTGRESDB_LOCAL_PORT: $POSTGRESDB_DOCKER_PORT
     volumes:
       - db:/var/lib/postgres
   app:
@@ -36,28 +36,3 @@ services:
 
 volumes:
   db:
-
-
-
-#version: '3.8'
-#
-#services:
-#  portfolio_backend:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    ports:
-#      - "8080:8080"
-#    environment:
-#      - SPRING_PROFILES_ACTIVE=production
-#      - POSTGRES_DATABASE=db
-#      - POSTGRES_USER=user
-#      - POSTGRES_PASSWORD=password
-#    volumes:
-#      - ./config:/app/config
-#    networks:
-#      - my-network
-#
-#networks:
-#  my-network:
-#    driver: bridge
